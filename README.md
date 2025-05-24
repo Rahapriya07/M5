@@ -173,7 +173,8 @@ int main() {
 ```
 
  ## OUTPUT
- ![Screenshot 2025-05-23 001156](https://github.com/user-attachments/assets/38a33d1f-1f2b-42cd-a9bb-fee654e585aa)
+![Screenshot 2025-05-24 132929](https://github.com/user-attachments/assets/fc4d08bd-41dd-4c4d-a8e7-97b5b34c6126)
+
 
 ## RESULT
 
@@ -188,14 +189,23 @@ Write a c program to read and display an array of any 6 integer elements using p
 Step 1: Start the program.
 Step 2: Declare the following:
 •	Integer variable i for iteration.
+
 •	Integer variable n to store the number of elements.
+
 •	Integer array arr[10] to hold up to 10 elements.
+
 •	Integer pointer parr and initialize it to point to the array arr.
+
 Step 3: Read the value of n (number of elements) from the user.
+
 Step 4: Loop from i = 0 to i < n:
+
 •	Read an integer value and store it in the address parr + i using pointer arithmetic.
+
 Step 5: Loop from i = 0 to i < n:
+
 •	Print the element at *(parr + i) using pointer dereferencing.
+
 Step 6: End the program.
 
 ## PROGRAM
