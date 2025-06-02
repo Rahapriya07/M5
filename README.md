@@ -14,18 +14,30 @@ Write a C program to convert a 23.65 into 25 using pointer
 ## PROGRAM:
 ```
 #include <stdio.h>
-
 int main() {
-   double number = 23.65;
-    double *ptr = &number;
+    float num = 23.65;
+    float *ptr = &num;
+    printf("Original number: %.2f\n", *ptr);
     *ptr = 25.0;
-    printf("Modified value: %.2f\n", number);
+    printf("Modified number: %.2f\n", *ptr);
     return 0;
 }
 ```
 
 ## OUTPUT:
-![Screenshot 2025-05-23 000102](https://github.com/user-attachments/assets/aa480b0d-4e2c-4614-b2d7-e2c0e5b1aa1c)
+![image](https://github.com/user-attachments/assets/fd586f00-2346-4a5d-ad44-94085396422d)
+
+ 	
+
+
+
+
+
+
+
+
+
+
 
 ## RESULT:
 Thus the program to convert a 23.65 into 25 using pointer has been executed successfully.
@@ -49,29 +61,26 @@ Write a C program to calculate the Product of first 12 natural numbers using Rec
 6.	Print the result, indicating it is the product of the first 12 natural numbers.
 
 ## PROGRAM:
+
 ```
 #include <stdio.h>
-
-unsigned long long calculateProduct(int n) {
-    if (n == 1)
+unsigned long long product(int n) {
+    if (n == 1) {
         return 1;
-    else
-        return n * calculateProduct(n - 1);
+    } else {
+        return n * product(n - 1);
+    }
 }
-
 int main() {
     int n = 12;
-    unsigned long long product;
-
-    product = calculateProduct(n);
-
-    printf("Product of first 12 natural numbers: %llu\n", product);
-
+    unsigned long long result;
+    result = product(n);
+    printf("Product of first 12 natural numbers is: %llu\n", result);
     return 0;
 }
 ```
 ## OUTPUT:
-![Screenshot 2025-05-23 000436](https://github.com/user-attachments/assets/cb1f18ea-6e62-4462-9a13-c5a92fa8a613)
+![image](https://github.com/user-attachments/assets/c309cc0d-8143-4887-9da1-1c934b20edf5)
 
          		
 ## RESULT:
@@ -96,23 +105,25 @@ Write C Program to find Sum of each row of a Matrix
 
 ## PROGRAM:
 ```
-#include <stdio.h>
-
-int main() {
-    int matrix[3][3] = {
-        {1, 2, 3},
-        {4, 5, 6},
-        {7, 8, 9}
-    };
-    
-    for (int i = 0; i < 3; i++) {
-        int sum = 0;
-        for (int j = 0; j < 3; j++) {
-            sum += matrix[i][j];
+#include<stdio.h>
+int main()
+{
+    int m,n,i,j;
+    scanf("%d %d",&m,&n);
+    int arr[m][n];
+    for (i=0;i<m;i++){
+        for (j=0;j<n;j++){
+            scanf("%d",&arr[i][j]);
         }
-        printf("Sum of row %d = %d\n", i + 1, sum);
     }
-
+    printf("Sum of each row:\n");
+    for (i=0;i<m;i++){
+        int sum=0;
+        for (j=0;j<n;j++){
+            sum+=arr[i][j];
+        }
+        printf("Row %d sum = %d\n",i+1,sum);
+    }
     return 0;
 }
 ```
@@ -120,11 +131,15 @@ int main() {
 
 
 ## OUTPUT
-![Screenshot 2025-05-23 000617](https://github.com/user-attachments/assets/39471289-a2b4-492b-88a9-7932441e43ef) 
+![image](https://github.com/user-attachments/assets/cd5885b4-1a2a-487a-bb23-82187363d2b1)
 
-## RESULT
-Sum of each row of a matrix if found successfully.
+
  
+ 
+
+ ## RESULT
+ Thus the program has been executed successfully.
+
 
 # EX-24-STRINGS
 
@@ -172,13 +187,22 @@ int main() {
 }
 ```
 
- ## OUTPUT
-![Screenshot 2025-05-24 132929](https://github.com/user-attachments/assets/fc4d08bd-41dd-4c4d-a8e7-97b5b34c6126)
 
+ ## OUTPUT
+![image](https://github.com/user-attachments/assets/8a39e6b1-f1c1-46b4-be44-f50d1839b64f)
+
+
+
+ 
 
 ## RESULT
 
 Thus the C program to String process executed successfully
+ 
+
+
+
+
 
 # EX -25 –DISPLAYING ARRAYS USING POINTERS
 ## AIM
@@ -189,49 +213,47 @@ Write a c program to read and display an array of any 6 integer elements using p
 Step 1: Start the program.
 Step 2: Declare the following:
 •	Integer variable i for iteration.
-
 •	Integer variable n to store the number of elements.
-
 •	Integer array arr[10] to hold up to 10 elements.
-
 •	Integer pointer parr and initialize it to point to the array arr.
-
 Step 3: Read the value of n (number of elements) from the user.
-
 Step 4: Loop from i = 0 to i < n:
-
 •	Read an integer value and store it in the address parr + i using pointer arithmetic.
-
 Step 5: Loop from i = 0 to i < n:
-
 •	Print the element at *(parr + i) using pointer dereferencing.
-
 Step 6: End the program.
 
 ## PROGRAM
 ```
 #include <stdio.h>
-
 int main() {
-    int arr[6];
-    int *ptr = arr;
+	int arr[10];
+	int *parr;
+	int i, n;
 
-    printf("Enter 6 integers:\n");
-    for (int i = 0; i < 6; i++) {
-        scanf("%d", ptr + i);
-    }
+	parr = arr;
+	scanf("%d", &n);
 
-    printf("The entered integers are:\n");
-    for (int i = 0; i < 6; i++) {
-        printf("%d ", *(ptr + i));
-    }
-
-    return 0;
+	if (n > 10) {
+		printf("Please enter up to 10 elements only.\n");
+		return 1;
+	}
+	for(i = 0; i < n; i++) {
+		scanf("%d", (parr + i));
+	}
+	printf("The array elements are:\n");
+	for(i = 0; i < n; i++) {
+		printf("%d ", *(parr + i));
+	}
+	printf("\n");
+	return 0;
 }
 ```
 
 ## OUTPUT
-![Screenshot 2025-05-23 001444](https://github.com/user-attachments/assets/4a685212-3f8a-438c-8847-d3554e57d3dd)
+![image](https://github.com/user-attachments/assets/f3f3680b-a574-4f55-bcb8-b84491ca45a5)
+
+
  
 
 ## RESULT
